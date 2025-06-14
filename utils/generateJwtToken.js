@@ -18,8 +18,8 @@ export const generateJWT = (user) => {
 export const sendTokenInCookie = (res, token) => {
   res.cookie("jwt", token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    
     maxAge: 3600000,
-    sameSite: "Strict",
+    sameSite: "none",
   });
 };
