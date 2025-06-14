@@ -125,8 +125,8 @@ export const Login = asyncHandler(async (req, res, next) => {
 export const Logout = asyncHandler(async (req, res, next) => {
   const logout = res.clearCookie("jwt", {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "Strict",
+    secure: "none",
+    sameSite: "none",
   });
   if(!logout) {
     return res.status(400).json({ status: "fail", message: "Failed to clear cookie." });
